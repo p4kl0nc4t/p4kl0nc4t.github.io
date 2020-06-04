@@ -49,14 +49,16 @@ class WebsocketMessage:
     &#34;&#34;&#34;
     def __init__(self,
                  tag: Optional[str] = None,
-                 data: Optional[AnyStr] = None) -&gt; None:
+                 data: Optional[AnyStr] = None,
+                 is_binary: Optional[bool] = False) -&gt; None:
         &#34;&#34;&#34;Initiate the class.&#34;&#34;&#34;
+
         self.tag = tag
         if not self.tag:
             self.tag = utilities.generate_message_tag()
-        self.data = data
 
-        self.is_binary = False
+        self.data = data
+        self.is_binary = is_binary
 
     def serialize(self, keys: Sequence[bytes]) -&gt; AnyStr:
         &#34;&#34;&#34;Unserialize the message. A regular JSON message
@@ -412,7 +414,7 @@ decrypt new messages.</p></div>
 </dd>
 <dt id="kyros.websocket.WebsocketMessage"><code class="flex name class">
 <span>class <span class="ident">WebsocketMessage</span></span>
-<span>(</span><span>tag: Optional[str] = None, data: Optional[AnyStr] = None)</span>
+<span>(</span><span>tag: Optional[str] = None, data: Optional[AnyStr] = None, is_binary: Optional[bool] = False)</span>
 </code></dt>
 <dd>
 <div class="desc"><p><code><a title="kyros.websocket.WebsocketMessage" href="#kyros.websocket.WebsocketMessage">WebsocketMessage</a></code> acts as a container for websocket messages.
@@ -433,14 +435,16 @@ data (for binary messages).
     &#34;&#34;&#34;
     def __init__(self,
                  tag: Optional[str] = None,
-                 data: Optional[AnyStr] = None) -&gt; None:
+                 data: Optional[AnyStr] = None,
+                 is_binary: Optional[bool] = False) -&gt; None:
         &#34;&#34;&#34;Initiate the class.&#34;&#34;&#34;
+
         self.tag = tag
         if not self.tag:
             self.tag = utilities.generate_message_tag()
-        self.data = data
 
-        self.is_binary = False
+        self.data = data
+        self.is_binary = is_binary
 
     def serialize(self, keys: Sequence[bytes]) -&gt; AnyStr:
         &#34;&#34;&#34;Unserialize the message. A regular JSON message
