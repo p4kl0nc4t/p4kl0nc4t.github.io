@@ -999,6 +999,7 @@ data (for binary messages).
         return self.encrypt(keys)
 
     def encrypt(self, keys: Sequence[bytes]) -&gt; bytes:
+        &#34;&#34;&#34;Encrypts a binary message.&#34;&#34;&#34;
         enc_key, mac_key = keys
         checksum = crypto.hmac_sha256(mac_key, self.data)
         serialized = f&#34;{self.tag},&#34;.encode()
@@ -1147,12 +1148,13 @@ binary message.</p></div>
 <span>def <span class="ident">encrypt</span></span>(<span>self, keys: Sequence[bytes]) -> bytes</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Encrypts a binary message.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def encrypt(self, keys: Sequence[bytes]) -&gt; bytes:
+    &#34;&#34;&#34;Encrypts a binary message.&#34;&#34;&#34;
     enc_key, mac_key = keys
     checksum = crypto.hmac_sha256(mac_key, self.data)
     serialized = f&#34;{self.tag},&#34;.encode()
